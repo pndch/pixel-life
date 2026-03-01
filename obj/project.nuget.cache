@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "grsVUZuUIwk=",
+  "success": true,
+  "projectFilePath": "A:\\repositories\\pixellife\\pixellife.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Egorp\\.nuget\\packages\\raylib-cs\\7.0.2\\raylib-cs.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
