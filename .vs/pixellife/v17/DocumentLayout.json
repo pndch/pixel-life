@@ -31,15 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "pixellife",
+              "Title": "pixellife.csproj",
               "DocumentMoniker": "A:\\repositories\\pixellife\\pixellife.csproj",
               "RelativeDocumentMoniker": "pixellife.csproj",
               "ToolTip": "A:\\repositories\\pixellife\\pixellife.csproj",
               "RelativeToolTip": "pixellife.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-01T14:38:39.308Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-01T14:38:39.308Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-01T14:38:26.196Z",
               "EditorCaption": ""
