@@ -13,9 +13,7 @@ class Program
     static void Main()
     {
         int timer = 0;
-        int tempOutput = 0;
-        int tempAgeCounter = 0;
-        int tempAgeId = 0;
+        int record = 0;
         int[] timerBuffer = [0, 0];
         int iteration = 0;
 
@@ -35,42 +33,29 @@ class Program
                 mash = new int[g.width / g.size, g.height / g.size, 2];
                 Bot.initBots(g.strategyOfNextGeneration);
                 initFood();
-                if (timer == timerBuffer[0]) { timerBuffer[1]++; }
-                else
-                {
-                    tempOutput = timer - timerBuffer[0];
-                    if (tempOutput > 0) { Console.WriteLine($"{timer,5} : {g.positive}+{tempOutput,5}{g.reset} :{timerBuffer[1],3}"); }
-                    else { Console.WriteLine($"{timer,5} : {g.negative}-{tempOutput * -1,5}{g.reset} :{timerBuffer[1],3}"); }
-                    timerBuffer[0] = timer; timerBuffer[1] = 1;
-                }
 
+                if (timer > record)
+                {
+                    Console.WriteLine($"New record: {g.positive}{timer,8}{g.reset}    Old record: {record,8} : +{timer - record}");
+                    Console.WriteLine($"iteration: {iteration}");
+                    Console.WriteLine("genome of last 2 bots: \n");
+                    for (int i = 0; i < Math.Sqrt(g.dnaSize); i++)
+                    {
+                        for (int j = 0; j < Math.Sqrt(g.dnaSize); j++)
+                        {
+                            Console.Write($"{Bot.dnaBuf[0, j + i * (int)Math.Sqrt(g.dnaSize)],4}");
+                        }
+                        Console.Write($"   |   ");
+                        for (int j = 0; j < Math.Sqrt(g.dnaSize); j++)
+                        {
+                            Console.Write($"{Bot.dnaBuf[1, j + i * (int)Math.Sqrt(g.dnaSize)],4}");
+                        }
+                        Console.WriteLine("\n");
+                    }
+                    record = timer;
+                }
                 timer = 0;
                 iteration++;
-            }
-            else if (timer > g.maxTimer)
-            {
-                mash = new int[g.width / g.size, g.height / g.size, 2];
-                for (int i = 0; i < Bot.countAll; i++)
-                {
-                    if (Bot.bots[i].alive == true && Bot.bots[i].age > tempAgeCounter) { tempAgeCounter = Bot.bots[i].age; tempAgeId = i; }
-                }
-                Console.WriteLine("\n-----simulaton was ended with " + iteration + " iterations and " + Bot.countAlive + " bots-----");
-                Console.WriteLine("age of oldest bot: " + tempAgeCounter);
-                Console.WriteLine("genome of oldest bot: \n");
-                for (int i = 0; i < Math.Sqrt(g.dnaSize); i++)
-                {
-                    for (int j = 0; j < Math.Sqrt(g.dnaSize); j++)
-                    {
-                        Console.Write($"{Bot.bots[tempAgeId].dna[j + i * (int)Math.Sqrt(g.dnaSize)],4}");
-                    }
-                    Console.WriteLine("\n");
-                }
-                System.Threading.Thread.Sleep(5000);
-
-                iteration = 0;
-                timer = 0;
-                Bot.initBots(0);
-                initFood();
             }
 
             //update pos
@@ -104,6 +89,26 @@ class Program
             }
             EndDrawing();
         }
+
+        // --- логи после закрытия программы ---
+        if (timer > record) { record = timer; }
+        Console.WriteLine($"{g.negative} ------------------------statistic of simulation------------------------{g.reset}\n");
+        Console.WriteLine($"  record: {g.positive}{record,8}{g.reset} iteration: {iteration}");
+        Console.WriteLine($"  genome of last 2 bots: \n");
+        for (int i = 0; i < Math.Sqrt(g.dnaSize); i++)
+        {
+            for (int j = 0; j < Math.Sqrt(g.dnaSize); j++)
+            {
+                Console.Write($"{Bot.dnaBuf[0, j + i * (int)Math.Sqrt(g.dnaSize)],4}");
+            }
+            Console.Write($"   |   ");
+            for (int j = 0; j < Math.Sqrt(g.dnaSize); j++)
+            {
+                Console.Write($"{Bot.dnaBuf[1, j + i * (int)Math.Sqrt(g.dnaSize)],4}");
+            }
+            Console.WriteLine("\n");
+        }
+        Console.WriteLine($"{g.negative} ------------------------statistic of simulation------------------------{g.reset}\n");
         CloseWindow();
     }
 

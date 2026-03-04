@@ -16,7 +16,7 @@ public class Bot
     public static int[,] dnaBuf = new int[g.botTransferCount, g.dnaSize];
 
     public int age = 0;
-    public int hp = g.startHP;
+    public double hp = g.startHP;
     public bool alive = true;
     public int x;
     public int y;
@@ -112,8 +112,37 @@ public class Bot
                 }
             }
         }
+        else if (x == 3)
+        {
+            for (int i = 0; i < g.botCount; i++)
+            {
+                countAll += 1;
+                countAlive += 1;
 
+                while (true)
+                {
+                    bots[i] = new Bot();
+                    if (Program.mash[bots[i].x, bots[i].y, 0] == 0) { Program.mash[bots[i].x, bots[i].y, 0] = 1; Program.mash[bots[i].x, bots[i].y, 1] = i; break; }
+                }
 
+                for (int j = 0; j < g.dnaSize; j++)
+                {
+                    int tempG = rnd.Next(2); 
+                    if (dnaBuf[tempG, j] > 8 && dnaBuf[tempG, j] < 17)
+                    {
+                            
+                        for (int t = 0; t<3; t++)
+                        {
+                            bots[i].dna[j] = dnaBuf[tempG, j];
+                            if (j == g.dnaSize - 1) { break; } else { j++; }
+                        }
+                    }
+                    else { bots[i].dna[j] = dnaBuf[tempG, j]; }
+
+                    if (rnd.Next(g.mutationFactor) == 1) { bots[i].dna[j] = rnd.Next(g.commandsCount) + 1; }
+                }
+            }
+        }
     }
 
     public void dupe()
@@ -258,7 +287,7 @@ public class Bot
                 x = tmpx; y = tmpy;
                 break;
             case 2:
-                hp += 30;
+                hp += g.foodEff;
                 break;
         }
 
@@ -269,7 +298,8 @@ public class Bot
     {
         int tx = 0, ty = 0;
 
-        hp++;
+        hp += 0.75;
+
         switch (rotation) // 0-up 1-right 2-down 3-left
         {
             case 0:
@@ -375,7 +405,7 @@ public class Bot
                     while (rotation > 3) { rotation -= 4; }
                     if (nextDna == g.dnaSize - 1) { nextDna = 0; } else { nextDna++; }
                     doDna(); break;
-                case 20: hp += 2; break; //photosythesis
+                case 20: hp += g.photosyntesisEff; break; //photosythesis
                 case 21: dupe(); break; //dupe
             }
 
