@@ -16,26 +16,29 @@ public static class g // settings
     // ----- window -----
     public const int height = 640;
     public const int width = 640;
-    public const byte size = 8;
+    public const byte size = 4;
     public const int maxTimer = 50000;
-    public const int speed = 16; //0-no limit
+    public const int speed = 0; //0-no limit
+    public const int maxX = width / size;
+    public const int maxY = height / size;
 
     // ----- simulation -----
-    public const int foodCount = 300;
-    public const int foodEff = 200;
+    public const int foodCount = 400;
+    public const int foodEff = 50;
     public const int startHP = 80;
-    public const int dupeHP = 100;
+    public const int dupeHP = 50;
 
-    public const int botCount = 8;
+    public const int botCount = 64;
     public const int maximumBotCount = 1024;
     public const int botTransferCount = 4;
 
     // ----- dna -----
-    public const int photosyntesisEff = 1;
-    public const int dnaSize = 64; // 2^x req
-    public const int commandsCount = 32; //9 real
-    public const int mutationFactor = 8; // 1 == no mutation // 3 == 1/3 of genom randomized 
+    public const int sensorCount = 12;
+    public const int thingCount = 2;
+    public const int eventsCount = 8;
+    public const double mutationStep = 0.05;
+    public const int mutationFactor = 5; // 1 == no mutation // 3 == 1/3 of genom randomized 
 
     // ----- probably temp -----
-    public const int strategyOfNextGeneration = 3; //1 - botTransferCount >> NextGeneration // 2 - BestBot >> NextGeneration
+    public const int strategyOfNextGeneration = 1; //1 - botTransferCount >> NextGeneration // 2 - BestBot >> NextGeneration
 }
