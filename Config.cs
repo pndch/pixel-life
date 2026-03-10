@@ -23,8 +23,8 @@ public static class g // settings
     public const int maxY = height / size;
 
     // ----- simulation -----
-    public const int foodCount = 400;
-    public const int foodEff = 50;
+    public const int foodCount = 200;
+    public const int foodEff = 70;
     public const int startHP = 80;
     public const int dupeHP = 50;
 
@@ -36,8 +36,8 @@ public static class g // settings
     public const int sensorCount = 12;
     public const int thingCount = 2;
     public const int eventsCount = 8;
-    public const double mutationStep = 0.05;
-    public const int mutationFactor = 5; // 1 == no mutation // 3 == 1/3 of genom randomized 
+    public const double mutationStep = 0.07;
+    public const int mutationFactor = 64; // 1 == no mutation // 3 == 1/3 of genom randomized 
 
     // ----- probably temp -----
     public const int strategyOfNextGeneration = 1; //1 - botTransferCount >> NextGeneration // 2 - BestBot >> NextGeneration

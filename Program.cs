@@ -41,7 +41,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine($"\n\nrecord: {g.positive}{record,8}{g.reset}");
+                    Console.WriteLine($"\n\nrecord: {g.positive}{record,8}{g.reset}   timer: {timer}");
                 }
                 Console.WriteLine($"iteration: {iteration}");
                 Console.WriteLine("genome of last bot: \n");

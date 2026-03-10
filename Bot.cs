@@ -96,7 +96,7 @@ public class Bot
                         if (temp == 0)
                         {
                             temp = rnd.Next(2) * 2 - 1;
-                            bots[b].dna[i, j] = savedDna[0, i, j] + (float)(g.mutationStep * temp);
+                            bots[b].dna[i, j] = savedDna[0, i, j] * (float)0.98 + (float)(g.mutationStep * temp);
                         }
                         else { bots[b].dna[i, j] = savedDna[0, i, j]; }
                     }
