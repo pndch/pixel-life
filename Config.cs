@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Raylib_cs;
-using static Raylib_cs.Raylib;
-
-public static class g // settings
+﻿public static class g // settings
 {
     // ----- console -----
     public const string negative = "\u001b[31m"; //color
@@ -17,8 +9,8 @@ public static class g // settings
     public const int height = 640;
     public const int width = 640;
     public const byte size = 4;
-    public const int maxTimer = 50000;
-    public const int speed = 0; //0-no limit
+    public static int speed = 0; //0-no limit
+    public static bool FPSflag = true;
     public const int maxX = width / size;
     public const int maxY = height / size;
 

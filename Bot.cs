@@ -34,7 +34,7 @@ public class Bot
     public float[,] dna;
     public static float[,,] savedDna = new float[2, g.eventsCount, g.thingCount * g.sensorCount];
     public int[] sensOutput;
-    public Color clr = Color.Lime;
+    public Raylib_cs.Color clr = Raylib_cs.Color.Lime;
 
     public Bot()
     {
