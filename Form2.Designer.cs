@@ -43,6 +43,8 @@
             label9 = new Label();
             textBox9 = new TextBox();
             button1 = new Button();
+            textBox7 = new TextBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -182,11 +184,31 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(155, 214);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(78, 23);
+            textBox7.TabIndex = 23;
+            textBox7.Text = "0";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(12, 216);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 21);
+            label7.TabIndex = 22;
+            label7.Text = "dupe";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(245, 302);
+            Controls.Add(textBox7);
+            Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(label9);
             Controls.Add(textBox9);
@@ -225,5 +247,7 @@
         private Label label9;
         private TextBox textBox9;
         private Button button1;
+        private TextBox textBox7;
+        private Label label7;
     }
 }

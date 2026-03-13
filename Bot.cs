@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Raylib_cs;
-using static Raylib_cs.Raylib;
-using System.Drawing;
-
-public class Bot
+﻿public class Bot
 {
     private static Random rnd = new Random();
 
@@ -80,8 +71,7 @@ public class Bot
                 }
             }
         }
-
-        if (x == 1)
+        else if (x == 1)
         {
             int temp;
             int mutationCount;
@@ -120,7 +110,7 @@ public class Bot
                     temp = rnd.Next(2) * 2 - 1;
                     bots[b].rgb[i] = (byte)(Math.Abs(savedRgb[gnr, i] + temp * mutationCount) % 256);
                 }
-                
+
                 bots[b].clr = new Raylib_cs.Color(bots[b].rgb[0], bots[b].rgb[1], bots[b].rgb[2]);
             }
         }
@@ -187,6 +177,8 @@ public class Bot
     {
         if (alive == true)
         {
+            if ((g.dupe == true) && (hp >= g.dupeHP * 2) && (countAll < g.maximumBotCount)) { dupe(); return; }
+
             // ---next iteration preparetion---
             int tmpid = Program.mash[x, y, 1]; int tmpx = x; int tmpy = y;
             Program.mash[x, y, 0] = 0; Program.mash[x, y, 1] = 0;
@@ -198,7 +190,7 @@ public class Bot
                 alive = false;
                 countAlive -= 1;
                 if (countAlive < g.botTransferCount) { save(countAlive); }
-                Program.mash[x, y, 0] = 2; Program.mash[x, y, 1] = 0;
+                Program.mash[x, y, 0] = 0; Program.mash[x, y, 1] = 0;
                 return;
             }
 
@@ -261,5 +253,107 @@ public class Bot
             }
             Program.mash[x, y, 0] = 1; Program.mash[x, y, 1] = tmpid;
         }
+    }
+
+    public void dupe()
+    {
+        int spawnDistanse = 3;
+        int id = countAll;
+
+        bots[id] = new Bot();
+        bots[id].hp = g.dupeHP;
+
+        switch (rnd.Next(4))
+        {
+            case 0:
+                bots[id].x = x + spawnDistanse;
+                bots[id].y = y + spawnDistanse;
+                break;
+            case 1:
+                bots[id].x = x + spawnDistanse;
+                bots[id].y = y - spawnDistanse;
+                break;
+            case 2:
+                bots[id].x = x - spawnDistanse;
+                bots[id].y = y + spawnDistanse;
+                break;
+            case 3:
+                bots[id].x = x - spawnDistanse;
+                bots[id].y = y - spawnDistanse;
+                break;
+        }
+
+        // ---invalid position check---
+        bots[id].x = (bots[id].x + g.maxX) % g.maxX;
+        bots[id].y = (bots[id].y + g.maxY) % g.maxY;
+
+        int tmp = 0;
+        while (tmp < 8)
+        {
+            if (Program.mash[bots[id].x, bots[id].y, 0] != 1) { break; }
+            else
+            {
+                switch (rnd.Next(4))
+                {
+                    case 0:
+                        bots[id].x = x + 1;
+                        bots[id].y = y + 1;
+                        break;
+                    case 1:
+                        bots[id].x = x + 1;
+                        bots[id].y = y - 1;
+                        break;
+                    case 2:
+                        bots[id].x = x - 1;
+                        bots[id].y = y + 1;
+                        break;
+                    case 3:
+                        bots[id].x = x - 1;
+                        bots[id].y = y - 1;
+                        break;
+                }
+
+                bots[id].x = (bots[id].x + g.maxX) % g.maxX;
+                bots[id].y = (bots[id].y + g.maxY) % g.maxY;
+            }
+            tmp++;
+        }
+
+        if (tmp > 7) { return; } // если не получится найти место рядом с родителем просто удалим ребенка
+
+        if (Program.mash[bots[id].x, bots[id].y, 0] == 2) { bots[id].hp += 30; }
+
+        Program.mash[bots[id].x, bots[id].y, 0] = 1; Program.mash[bots[id].x, bots[id].y, 1] = id;
+
+        int mutationCount = 0;
+        int temp;
+
+        for (int i = 0; i < g.eventsCount; i++)
+        {
+            for (int j = 0; j < g.thingCount * g.sensorCount; j++)
+            {
+                temp = rnd.Next(g.mutationFactor);
+                if (temp == 0)
+                {
+                    mutationCount++;
+                    temp = rnd.Next(2) * 2 - 1;
+                    bots[id].dna[i, j] = dna[i, j] * (float)0.98 + (float)(g.mutationStep * temp);
+                }
+                else { bots[id].dna[i, j] = dna[i, j]; }
+            }
+        }
+        for (int i = 0; i < 3; i++)
+        {
+            temp = rnd.Next(2) * 2 - 1;
+            bots[id].rgb[i] = (byte)(Math.Abs(rgb[i] + temp * mutationCount) % 256);
+        }
+
+        bots[id].clr = new Raylib_cs.Color(bots[id].rgb[0], bots[id].rgb[1], bots[id].rgb[2]);
+
+
+        countAll += 1;
+        countAlive += 1;
+        hp -= g.dupeHP;
+
     }
 }

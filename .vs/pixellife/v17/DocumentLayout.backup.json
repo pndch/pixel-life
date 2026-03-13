@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "A:\\repositories\\pixellife\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\bot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,16 +15,16 @@
       "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:analytics.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|A:\\repositories\\pixellife\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{544E651B-6C51-4D6A-881E-B6CB3D2CF5A5}|pixellife.csproj|a:\\repositories\\pixellife\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,17 +42,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "A:\\repositories\\pixellife\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-01T14:38:26.196Z",
               "IsPinned": true,
@@ -66,7 +66,7 @@
               "RelativeDocumentMoniker": "Bot.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Bot.cs",
               "RelativeToolTip": "Bot.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAUwFoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAJgAAAAAAAAAAAAIwLkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T02:35:57.844Z",
               "IsPinned": true,
@@ -80,23 +80,10 @@
               "RelativeDocumentMoniker": "Analytics.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Analytics.cs",
               "RelativeToolTip": "Analytics.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABsAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-10T22:03:28.574Z",
               "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Config.cs",
-              "DocumentMoniker": "A:\\repositories\\pixellife\\Config.cs",
-              "RelativeDocumentMoniker": "Config.cs",
-              "ToolTip": "A:\\repositories\\pixellife\\Config.cs",
-              "RelativeToolTip": "Config.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T02:41:30.76Z",
               "EditorCaption": ""
             },
             {
@@ -109,20 +96,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "Config.cs",
+              "DocumentMoniker": "A:\\repositories\\pixellife\\Config.cs",
+              "RelativeDocumentMoniker": "Config.cs",
+              "ToolTip": "A:\\repositories\\pixellife\\Config.cs",
+              "RelativeToolTip": "Config.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-04T02:41:30.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form2.cs",
               "DocumentMoniker": "A:\\repositories\\pixellife\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAgAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-13T02:51:12.222Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "A:\\repositories\\pixellife\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
@@ -140,7 +140,7 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "A:\\repositories\\pixellife\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwDMAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwFQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-12T01:09:45.074Z",
               "EditorCaption": ""

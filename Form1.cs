@@ -4,6 +4,7 @@ namespace pixellife
 {
     public partial class Form1 : Form
     {
+        public static int fpsBuffer = 0;
         public Form1()
         {
             InitializeComponent();
@@ -67,7 +68,17 @@ namespace pixellife
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox4.Checked) { g.Dflag = false; } else { g.Dflag = true; }
+            if (checkBox4.Checked) 
+            { 
+                g.Dflag = false;
+                fpsBuffer = g.speed;
+                SetTargetFPS(0);
+            } 
+            else 
+            { 
+                g.Dflag = true;
+                SetTargetFPS(fpsBuffer);
+            }
         }
     }
 }

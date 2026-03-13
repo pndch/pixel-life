@@ -9,7 +9,7 @@
     public const int height = 640;
     public const int width = 640;
     public const byte size = 4;
-    public static int speed = 0; //0-no limit
+    public static int speed = 140; 
     public static bool FPSflag = true;
     public static bool Sflag = false; //stop flag
     public static bool Pflag = true; //pause flag
@@ -21,7 +21,8 @@
     public static int foodCount = 200;
     public static int foodEff = 70;
     public static int startHP = 80;
-    //public const int dupeHP = 50;
+    public static bool dupe = false;
+    public const int dupeHP = 50;
 
     public static int botCount = 64;
     public static int maximumBotCount = 1024;
@@ -34,7 +35,4 @@
 
     public static double mutationStep = 0.07;
     public static int mutationFactor = 64; // 1 == no mutation // 3 == 1/3 of genom randomized 
-
-    // ----- probably temp -----
-    public const int strategyOfNextGeneration = 1; //1 - botTransferCount >> NextGeneration // 2 - BestBot >> NextGeneration
 }

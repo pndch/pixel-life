@@ -24,6 +24,8 @@ namespace pixellife
 
             textBox4.Text = g.mutationFactor.ToString();
             textBox9.Text = g.mutationStep.ToString();
+
+            textBox7.Text = g.dupe.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +39,9 @@ namespace pixellife
 
             g.mutationFactor = int.Parse(textBox4.Text);
             g.mutationStep = double.Parse(textBox9.Text);
-            
+
+            g.dupe = bool.Parse(textBox7.Text);
+
             Close();
         }
     }

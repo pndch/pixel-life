@@ -10,8 +10,6 @@ class Program
 {
     static public int[,,] mash = new int[g.maxX, g.maxY, 2];
     static public bool endflag = false;
-    // | horizontal | vertical | 0-type of thing on 1-for some species like bot id |
-    // 0 - nothing | 1 - bot | 2 - food
     
     static void Main()
     {
@@ -48,7 +46,7 @@ class Program
                 if (Bot.countAlive <= 0)
                 {
                     mash = new int[g.width / g.size, g.height / g.size, 2];
-                    Bot.init(g.strategyOfNextGeneration);
+                    Bot.init(1);
                     initFood();
                     if (a.Aflag == true) { a.end(); }
                 }
@@ -107,5 +105,3 @@ class Program
         }
     }
 }
-
-
