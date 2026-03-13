@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pixellife")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bfc40195520c70c7e6b667b4bdb750477cbde1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a64e719ab64a2ac9c2ce4c2ae6fb7fe16a78e92")]
 [assembly: System.Reflection.AssemblyProductAttribute("pixellife")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pixellife")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

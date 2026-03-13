@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Raylib_cs;
 using static Raylib_cs.Raylib;
+using System.Drawing;
 
 public class Bot
 {
     private static Random rnd = new Random();
+
     public static Bot[] bots = new Bot[g.maximumBotCount];
     public static int countAlive = 0;
     public static int countAll = 0;
-    //public static int[,] xy = new int[g.botCount, 2];
-    //public static int[,] dnaBuf = new int[g.botTransferCount, g.dnaSize];
+
     public static int mvmCount = 20;
     public float[] probs = new float[g.eventsCount];
     public static int[,] mvm =
@@ -30,16 +31,21 @@ public class Bot
     public bool alive = true;
     public int x;
     public int y;
-    //public int rotation = 0; // 0-up 1-right 2-down 3-left
     public float[,] dna;
-    public static float[,,] savedDna = new float[2, g.eventsCount, g.thingCount * g.sensorCount];
+    public static float[,,] savedDna = new float[g.botTransferCount, g.eventsCount, g.thingCount * g.sensorCount];
+    public static byte[,] savedRgb = new byte[g.botTransferCount, 3];
     public int[] sensOutput;
-    public Raylib_cs.Color clr = Raylib_cs.Color.Lime;
+
+    public byte[] rgb = new byte[3];
+    public Raylib_cs.Color clr = new Raylib_cs.Color();
 
     public Bot()
     {
         dna = new float[g.eventsCount, g.thingCount * g.sensorCount];
         sensOutput = new int[g.thingCount * g.sensorCount];
+
+        rnd.NextBytes(rgb);
+        clr = new Raylib_cs.Color(rgb[0], rgb[1], rgb[2]);
 
         for (int i = 0; i < g.eventsCount; i++)
         {
@@ -62,7 +68,7 @@ public class Bot
 
         if (x == 0) // first iteration only
         {
-            for (int i = 0; i < g.botCount*10; i++)
+            for (int i = 0; i < g.botCount * 10; i++)
             {
                 countAll += 1;
                 countAlive += 1;
@@ -77,8 +83,14 @@ public class Bot
 
         if (x == 1)
         {
+            int temp;
+            int mutationCount;
+            int gnrSize = g.botCount / g.botTransferCount;
             for (int b = 0; b < g.botCount; b++)
             {
+                byte gnr = (byte)(b / gnrSize);
+
+                mutationCount = 0;
                 countAll += 1;
                 countAlive += 1;
 
@@ -92,15 +104,24 @@ public class Bot
                 {
                     for (int j = 0; j < g.thingCount * g.sensorCount; j++)
                     {
-                        int temp = rnd.Next(g.mutationFactor);
+                        temp = rnd.Next(g.mutationFactor);
                         if (temp == 0)
                         {
+                            mutationCount++;
                             temp = rnd.Next(2) * 2 - 1;
-                            bots[b].dna[i, j] = savedDna[0, i, j] * (float)0.98 + (float)(g.mutationStep * temp);
+                            bots[b].dna[i, j] = savedDna[gnr, i, j] * (float)0.98 + (float)(g.mutationStep * temp);
                         }
-                        else { bots[b].dna[i, j] = savedDna[0, i, j]; }
+                        else { bots[b].dna[i, j] = savedDna[gnr, i, j]; }
                     }
                 }
+
+                for (int i = 0; i < 3; i++)
+                {
+                    temp = rnd.Next(2) * 2 - 1;
+                    bots[b].rgb[i] = (byte)(Math.Abs(savedRgb[gnr, i] + temp * mutationCount) % 256);
+                }
+                
+                bots[b].clr = new Raylib_cs.Color(bots[b].rgb[0], bots[b].rgb[1], bots[b].rgb[2]);
             }
         }
     }
@@ -114,6 +135,7 @@ public class Bot
                 savedDna[x, i, j] = dna[i, j];
             }
         }
+        for (int i = 0; i < 3; i++) { savedRgb[x, i] = rgb[i]; }
     }
 
     void sensor()
@@ -174,8 +196,8 @@ public class Bot
             if (hp <= 0)
             {
                 alive = false;
-                save(0);
                 countAlive -= 1;
+                if (countAlive < g.botTransferCount) { save(countAlive); }
                 Program.mash[x, y, 0] = 2; Program.mash[x, y, 1] = 0;
                 return;
             }

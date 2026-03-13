@@ -50,6 +50,8 @@
             label12 = new Label();
             checkBox3 = new CheckBox();
             label13 = new Label();
+            checkBox4 = new CheckBox();
+            label14 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -64,9 +66,9 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(143, 12);
+            textBox1.Location = new Point(155, 12);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(90, 23);
+            textBox1.Size = new Size(78, 23);
             textBox1.TabIndex = 1;
             textBox1.Text = "0";
             // 
@@ -84,7 +86,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.Location = new Point(12, 122);
+            label2.Location = new Point(12, 164);
             label2.Name = "label2";
             label2.Size = new Size(78, 21);
             label2.TabIndex = 7;
@@ -93,7 +95,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 158);
+            label3.Location = new Point(12, 200);
             label3.Name = "label3";
             label3.Size = new Size(117, 15);
             label3.TabIndex = 8;
@@ -102,7 +104,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(135, 158);
+            label4.Location = new Point(135, 200);
             label4.Name = "label4";
             label4.Size = new Size(13, 15);
             label4.TabIndex = 9;
@@ -117,7 +119,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(135, 143);
+            label5.Location = new Point(135, 185);
             label5.Name = "label5";
             label5.Size = new Size(13, 15);
             label5.TabIndex = 11;
@@ -126,7 +128,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 143);
+            label6.Location = new Point(12, 185);
             label6.Name = "label6";
             label6.Size = new Size(90, 15);
             label6.TabIndex = 10;
@@ -135,7 +137,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(135, 188);
+            label7.Location = new Point(135, 230);
             label7.Name = "label7";
             label7.Size = new Size(13, 15);
             label7.TabIndex = 13;
@@ -144,7 +146,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 188);
+            label8.Location = new Point(12, 230);
             label8.Name = "label8";
             label8.Size = new Size(54, 15);
             label8.TabIndex = 12;
@@ -156,8 +158,9 @@
             button2.Name = "button2";
             button2.Size = new Size(115, 50);
             button2.TabIndex = 14;
-            button2.Text = "restart sim";
+            button2.Text = "bot settings";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -165,13 +168,14 @@
             button3.Name = "button3";
             button3.Size = new Size(115, 50);
             button3.TabIndex = 15;
-            button3.Text = "pause sim";
+            button3.Text = "start sim";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(135, 173);
+            label9.Location = new Point(135, 215);
             label9.Name = "label9";
             label9.Size = new Size(13, 15);
             label9.TabIndex = 17;
@@ -180,7 +184,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(12, 173);
+            label10.Location = new Point(12, 215);
             label10.Name = "label10";
             label10.Size = new Size(111, 15);
             label10.TabIndex = 16;
@@ -190,7 +194,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F);
-            label11.Location = new Point(12, 56);
+            label11.Location = new Point(12, 77);
             label11.Name = "label11";
             label11.Size = new Size(111, 21);
             label11.TabIndex = 18;
@@ -201,7 +205,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Checked = true;
             checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Location = new Point(143, 62);
+            checkBox1.Location = new Point(155, 83);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(15, 14);
             checkBox1.TabIndex = 19;
@@ -211,7 +215,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(143, 41);
+            checkBox2.Location = new Point(155, 62);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(15, 14);
             checkBox2.TabIndex = 21;
@@ -222,7 +226,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 12F);
-            label12.Location = new Point(12, 35);
+            label12.Location = new Point(12, 56);
             label12.Name = "label12";
             label12.Size = new Size(117, 21);
             label12.TabIndex = 20;
@@ -233,7 +237,7 @@
             checkBox3.AutoSize = true;
             checkBox3.Checked = true;
             checkBox3.CheckState = CheckState.Checked;
-            checkBox3.Location = new Point(143, 83);
+            checkBox3.Location = new Point(155, 104);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(15, 14);
             checkBox3.TabIndex = 23;
@@ -244,17 +248,39 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 12F);
-            label13.Location = new Point(12, 77);
+            label13.Location = new Point(12, 98);
             label13.Name = "label13";
             label13.Size = new Size(72, 21);
             label13.TabIndex = 22;
             label13.Text = "show fps";
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Location = new Point(155, 41);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new Size(15, 14);
+            checkBox4.TabIndex = 25;
+            checkBox4.UseVisualStyleBackColor = true;
+            checkBox4.CheckedChanged += checkBox4_CheckedChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 12F);
+            label14.Location = new Point(12, 35);
+            label14.Name = "label14";
+            label14.Size = new Size(137, 21);
+            label14.TabIndex = 24;
+            label14.Text = "perfomance mode";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(284, 361);
+            Controls.Add(checkBox4);
+            Controls.Add(label14);
             Controls.Add(checkBox3);
             Controls.Add(label13);
             Controls.Add(checkBox2);
@@ -276,7 +302,7 @@
             Controls.Add(textBox1);
             Controls.Add(button1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "simulation manager";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -304,5 +330,7 @@
         private Label label12;
         private CheckBox checkBox3;
         private Label label13;
+        private CheckBox checkBox4;
+        private Label label14;
     }
 }

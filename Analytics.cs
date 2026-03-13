@@ -22,8 +22,8 @@ using System.Threading;
 
 public static class a
 {
-    public static bool Aflag = true;
-    public static bool Gflag = false;
+    public static bool Aflag = true; //analytic flag
+    public static bool Gflag = false; //genome print flag
 
     public static int avgLifetime100 = 0;
     public static int avgLifetime25 = 0;
@@ -31,8 +31,7 @@ public static class a
     public static int record = 0;
     public static int iteration = 0;
 
-    static Queue<int> timerStack = new Queue<int>(101);
-    static int avgCounter = 0;
+    public static Queue<int> timerStack = new Queue<int>(101);
 
     public static void end()
     {
@@ -74,5 +73,15 @@ public static class a
         }
         avgLifetime25 = tempStack25 / tempCounter;
         avgLifetime100 = tempStack / timerStack.Count;
+    }
+
+    public static void restart()
+    {
+        avgLifetime100 = 0;
+        avgLifetime25 = 0;
+        timer = 0;
+        record = 0;
+        iteration = 0;
+        timerStack = new Queue<int>(101);
     }
 }

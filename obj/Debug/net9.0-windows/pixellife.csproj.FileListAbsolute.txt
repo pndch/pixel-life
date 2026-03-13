@@ -25,3 +25,4 @@ A:\repositories\pixellife\obj\Debug\net9.0-windows\refint\pixellife.dll
 A:\repositories\pixellife\obj\Debug\net9.0-windows\pixellife.pdb
 A:\repositories\pixellife\obj\Debug\net9.0-windows\pixellife.genruntimeconfig.cache
 A:\repositories\pixellife\obj\Debug\net9.0-windows\ref\pixellife.dll
+A:\repositories\pixellife\obj\Debug\net9.0-windows\pixellife.Form2.resources

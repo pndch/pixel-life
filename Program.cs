@@ -9,6 +9,7 @@ using pixellife;
 class Program
 {
     static public int[,,] mash = new int[g.maxX, g.maxY, 2];
+    static public bool endflag = false;
     // | horizontal | vertical | 0-type of thing on 1-for some species like bot id |
     // 0 - nothing | 1 - bot | 2 - food
     
@@ -25,57 +26,69 @@ class Program
         setting.SetApartmentState(ApartmentState.STA);
         setting.Start();
 
+        while (endflag == false) { g.Sflag = false; Draw();}
+    }
+
+    public static void Draw()
+    {
+        mash = new int[g.width / g.size, g.height / g.size, 2];
+
         Bot.init(0);
         initFood();
+        a.restart();
 
         InitWindow(g.width, g.height, "pixel");
         SetTargetFPS(g.speed);
 
-        while (WindowShouldClose() == false)
+        while (WindowShouldClose() == false && g.Sflag == false)
         {
-            //event handle
-
-            // -----end of sim-----
-            if (Bot.countAlive <= 0)
+            
+            if (g.Pflag == false)
             {
-                mash = new int[g.width / g.size, g.height / g.size, 2];
-                Bot.init(g.strategyOfNextGeneration);
-                initFood();
-                if (a.Aflag == true) { a.end(); }
+                if (Bot.countAlive <= 0)
+                {
+                    mash = new int[g.width / g.size, g.height / g.size, 2];
+                    Bot.init(g.strategyOfNextGeneration);
+                    initFood();
+                    if (a.Aflag == true) { a.end(); }
+                }
+
+                for (int i = 0; i < Bot.countAll; i++)
+                {
+                    if (Bot.bots[i].alive) { Bot.bots[i].move(); }
+                }
+
+                if (a.Aflag == true) { a.timer++; }
             }
-
-            //update pos
-
-            for (int i = 0; i < Bot.countAll; i++)
-            {
-                if (Bot.bots[i].alive) { Bot.bots[i].move(); }
-            }
-
-            if (a.Aflag == true) { a.timer++; }
 
             //draw
-            BeginDrawing();
-            ClearBackground(Raylib_cs.Color.Black);
-
-            if (g.FPSflag == true) { DrawFPS(10, 10); }
-            for (int i = 0; i < g.width / g.size; i++)
+            if (g.Dflag == true)
             {
-                for (int j = 0; j < g.height / g.size; j++)
+                BeginDrawing();
+                ClearBackground(Raylib_cs.Color.Black);
+                if (g.Pflag == false)
                 {
-                    switch (mash[i, j, 0])
+                    if (g.Pflag == false && g.FPSflag == true) { DrawFPS(10, 10); }
+                    for (int i = 0; i < g.width / g.size; i++)
                     {
-                        case 1:
-                            DrawRectangle(Bot.bots[mash[i, j, 1]].x * g.size, Bot.bots[mash[i, j, 1]].y * g.size, g.size, g.size, Bot.bots[mash[i, j, 1]].clr);
-                            break;
-                        case 2:
-                            DrawRectangle(i * g.size, j * g.size, g.size, g.size, Raylib_cs.Color.Violet);
-                            break;
+                        for (int j = 0; j < g.height / g.size; j++)
+                        {
+                            switch (mash[i, j, 0])
+                            {
+                                case 1:
+                                    DrawRectangle(Bot.bots[mash[i, j, 1]].x * g.size, Bot.bots[mash[i, j, 1]].y * g.size, g.size, g.size, Bot.bots[mash[i, j, 1]].clr);
+                                    break;
+                                case 2:
+                                    DrawRectangle(i * g.size, j * g.size, g.size, g.size, new Raylib_cs.Color(15, 200, 0, 120));
+                                    break;
+                            }
+                        }
                     }
                 }
+                EndDrawing();
             }
-
-            EndDrawing();
         }
+        if (WindowShouldClose() == true) { endflag = true; }
         CloseWindow();
     }
 
